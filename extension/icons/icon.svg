@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Background -->
+  <rect width="128" height="128" rx="24" fill="#0062cc"/>
+  <!-- Radar signal arcs -->
+  <circle cx="64" cy="74" r="42" fill="none" stroke="white" stroke-width="5" stroke-opacity="0.3"/>
+  <circle cx="64" cy="74" r="28" fill="none" stroke="white" stroke-width="5" stroke-opacity="0.5"/>
+  <circle cx="64" cy="74" r="14" fill="none" stroke="white" stroke-width="5" stroke-opacity="0.8"/>
+  <!-- Price trend line -->
+  <polyline points="18,80 38,65 58,70 78,45 98,52 110,38"
+            fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dot at end of line -->
+  <circle cx="110" cy="38" r="6" fill="#22c55e"/>
+</svg>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrijsRadar</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="../icons/icon32.png" alt="PrijsRadar" width="20" height="20">
+      <span>PrijsRadar</span>
+    </div>
+  </header>
+
+  <!-- Loading state -->
+  <div id="state-loading" class="state">
+    <div class="spinner"></div>
+    <p>Prijsdata ophalen…</p>
+  </div>
+
+  <!-- No product state -->
+  <div id="state-no-product" class="state hidden">
+    <div class="no-product-icon">🔍</div>
+    <p>Navigeer naar een<br><strong>Bol.com productpagina</strong><br>om prijshistorie te zien.</p>
+  </div>
+
+  <!-- Main product view -->
+  <div id="state-product" class="hidden">
+
+    <!-- Product info -->
+    <div class="product-header">
+      <img id="product-image" src="" alt="" class="product-img hidden">
+      <div class="product-info">
+        <div id="product-title" class="product-title"></div>
+        <div class="price-stats">
+          <div class="stat">
+            <span class="stat-label">Nu</span>
+            <span id="price-current" class="stat-value price-current">–</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Laagste</span>
+            <span id="price-lowest" class="stat-value price-lowest">–</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Hoogste</span>
+            <span id="price-highest" class="stat-value price-highest">–</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price rank badge -->
+    <div id="price-rank-badge" class="rank-badge hidden"></div>
+
+    <!-- Chart -->
+    <div class="chart-section">
+      <div class="chart-tabs">
+        <button class="tab active" data-days="30">30d</button>
+        <button class="tab" data-days="90">90d</button>
+        <button class="tab" data-days="365">1j</button>
+      </div>
+      <div class="chart-container">
+        <canvas id="price-chart"></canvas>
+        <div id="chart-no-data" class="chart-no-data hidden">
+          Nog geen prijshistorie.<br>Kom morgen terug!
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert section -->
+    <div class="alert-section">
+      <label class="alert-label">Melding als prijs daalt onder:</label>
+      <div class="alert-row">
+        <span class="euro">€</span>
+        <input type="number" id="alert-price" step="0.01" min="0.01" placeholder="0,00">
+        <button id="alert-btn" class="btn-alert">Instellen</button>
+      </div>
+      <div id="alert-status" class="alert-status hidden"></div>
+    </div>
+
+    <!-- Buy button (affiliate) -->
+    <a id="buy-btn" href="#" target="_blank" class="btn-buy">
+      Koop via PrijsRadar →
+    </a>
+
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "PrijsRadar – Bol.com Prijshistorie",
+  "short_name": "PrijsRadar",
+  "description": "Bekijk de volledige prijshistorie van elk Bol.com product. Stel prijsalerts in en betaal nooit te veel.",
+  "version": "0.1.0",
+
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+
+  "host_permissions": [
+    "https://www.bol.com/*",
+    "https://api.prijsradar.nl/*",
+    "http://localhost:8080/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.bol.com/nl/nl/p/*",
+        "https://www.bol.com/nl/p/*"
+      ],
+      "js": [
+        "content/bol-extractor.js",
+        "content/affiliate-rewriter.js",
+        "content/price-badge.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "32":  "icons/icon32.png",
+      "48":  "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "PrijsRadar"
+  },
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "32":  "icons/icon32.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "default_locale": "nl",
+
+  "_locales": "extension/_locales"
+}
