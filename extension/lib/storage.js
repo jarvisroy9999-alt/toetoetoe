@@ -14,13 +14,13 @@ export async function getObserverId() {
 }
 
 export async function getCurrentProduct() {
-  const { currentProduct } = await chrome.storage.session.get("currentProduct");
+  const { currentProduct } = await chrome.storage.local.get("currentProduct");
   return currentProduct || null;
 }
 
 export async function getCachedHistory(bolId) {
   const key = `history_${bolId}`;
-  const { [key]: cached } = await chrome.storage.session.get(key);
+  const { [key]: cached } = await chrome.storage.local.get(key);
   if (!cached) return null;
   // Cache valid for 10 minutes
   if (Date.now() - cached.ts > 10 * 60 * 1000) return null;
@@ -29,5 +29,5 @@ export async function getCachedHistory(bolId) {
 
 export async function setCachedHistory(bolId, data) {
   const key = `history_${bolId}`;
-  await chrome.storage.session.set({ [key]: { data, ts: Date.now() } });
+  await chrome.storage.local.set({ [key]: { data, ts: Date.now() } });
 }

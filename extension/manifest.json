@@ -54,7 +54,5 @@
     "128": "icons/icon128.png"
   },
 
-  "default_locale": "nl",
-
-  "_locales": "extension/_locales"
+  "default_locale": "nl"
 }
