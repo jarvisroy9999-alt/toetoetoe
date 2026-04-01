@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "PrijsRadar – Bol.com Prijshistorie"
+    "message": "ToeToeToe – Bol.com Prijshistorie"
   },
   "extDescription": {
     "message": "Bekijk de volledige prijshistorie van elk Bol.com product. Stel prijsalerts in en betaal nooit te veel."
@@ -11,7 +11,7 @@
   "noData":       { "message": "Nog geen prijshistorie beschikbaar. Kom later terug!" },
   "alertSet":     { "message": "Alert ingesteld" },
   "alertHint":    { "message": "Melding als prijs daalt onder:" },
-  "buyBtn":       { "message": "Koop via PrijsRadar" },
+  "buyBtn":       { "message": "Koop via ToeToeToe" },
   "days30":       { "message": "30d" },
   "days90":       { "message": "90d" },
   "daysAll":      { "message": "Alles" },

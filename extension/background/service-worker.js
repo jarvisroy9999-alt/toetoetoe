@@ -11,7 +11,7 @@ import { getObserverId } from "../lib/storage.js";
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === "PRICE_OBSERVED") {
     handlePriceObserved(message.data).then(sendResponse).catch((err) => {
-      console.warn("[PrijsRadar] price report failed:", err.message);
+      console.warn("[ToeToeToe] price report failed:", err.message);
       sendResponse({ error: err.message });
     });
     return true; // keep channel open for async response
@@ -92,7 +92,7 @@ async function notifyPriceDrop(alert) {
   chrome.notifications.create(`alert_${alert.id}`, {
     type:    "basic",
     iconUrl: "../icons/icon48.png",
-    title:   "PrijsRadar – Prijs gedaald! 🎉",
+    title:   "ToeToeToe – Prijs gedaald! 🎉",
     message: `${alert.title}\nNu: €${alert.current_price.toFixed(2)} (alert: €${alert.target_price.toFixed(2)})`,
     priority: 2,
   });

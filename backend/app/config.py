@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_url: str = "sqlite:///data/prijsradar.db"
+    database_url: str = "sqlite:///data/toetoetoe.db"
     telegram_bot_token: str = ""
     telegram_chat_id: str = ""
     bol_partner_id: str = ""

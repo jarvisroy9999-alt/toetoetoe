@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "PrijsRadar – Bol.com Prijshistorie",
-  "short_name": "PrijsRadar",
+  "name": "ToeToeToe – Bol.com Prijshistorie",
+  "short_name": "ToeToeToe",
   "description": "Bekijk de volledige prijshistorie van elk Bol.com product. Stel prijsalerts in en betaal nooit te veel.",
   "version": "0.1.0",
 
@@ -12,7 +12,7 @@
 
   "host_permissions": [
     "https://www.bol.com/*",
-    "https://api.prijsradar.nl/*",
+    "https://api.toetoetoe.nl/*",
     "http://localhost:8080/*"
   ],
 
@@ -44,7 +44,7 @@
       "48":  "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "PrijsRadar"
+    "default_title": "ToeToeToe"
   },
 
   "icons": {

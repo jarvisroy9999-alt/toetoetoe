@@ -20,7 +20,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="PrijsRadar API",
+    title="ToeToeToe API",
     description="Bol.com Price Tracker voor Nederland",
     version="0.1.0",
     lifespan=lifespan,

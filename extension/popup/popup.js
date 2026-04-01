@@ -1,6 +1,6 @@
 /**
  * popup.js
- * PrijsRadar popup controller.
+ * ToeToeToe popup controller.
  * Fetches price history from backend and renders chart + stats.
  */
 

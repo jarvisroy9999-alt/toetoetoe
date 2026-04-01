@@ -1,6 +1,6 @@
 /**
  * api-client.js
- * Thin wrapper around the PrijsRadar backend API.
+ * Thin wrapper around the ToeToeToe backend API.
  * Used by both the service worker and popup.
  */
 

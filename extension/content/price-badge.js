@@ -33,7 +33,7 @@
         <span class="pr-radar-icon">📡</span>
         <span class="pr-text">Prijshistorie bekijken</span>
       `;
-      badge.setAttribute("title", "PrijsRadar – bekijk de volledige prijshistorie");
+      badge.setAttribute("title", "ToeToeToe – bekijk de volledige prijshistorie");
 
       // Styling (scoped with pr- prefix to avoid conflicts)
       const style = document.createElement("style");
