@@ -8,7 +8,7 @@ from slowapi.util import get_remote_address
 
 from app.config import settings
 from app.database import Base, engine
-from app.routers import alerts, health, prices, products
+from app.routers import alerts, health, internal, prices, products
 
 limiter = Limiter(key_func=get_remote_address)
 
@@ -42,3 +42,4 @@ app.include_router(prices.router, prefix="/api/v1", tags=["prices"])
 app.include_router(products.router, prefix="/api/v1", tags=["products"])
 app.include_router(alerts.router, prefix="/api/v1", tags=["alerts"])
 app.include_router(health.router, prefix="/api/v1", tags=["health"])
+app.include_router(internal.router, prefix="/api/v1", tags=["internal"])

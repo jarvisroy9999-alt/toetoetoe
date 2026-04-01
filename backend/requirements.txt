@@ -6,3 +6,4 @@ pydantic-settings==2.6.0
 httpx==0.28.0
 python-telegram-bot==21.9
 slowapi==0.1.9
+playwright==1.49.0

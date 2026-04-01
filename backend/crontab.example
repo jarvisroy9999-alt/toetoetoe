@@ -1,0 +1,11 @@
+# ToeToeToe cron jobs — installeer met: crontab /pad/naar/crontab.example
+# Vervang <API_KEY> met de waarde uit je .env
+
+# Check alerts elke 15 minuten
+*/15 * * * * curl -s -X POST http://localhost:8080/api/v1/internal/check-alerts -H "X-Internal-Key: <API_KEY>" >> /var/log/toetoetoe-alerts.log 2>&1
+
+# Dagelijkse price aggregation om 02:00
+0 2 * * * curl -s -X POST http://localhost:8080/api/v1/internal/aggregate-daily -H "X-Internal-Key: <API_KEY>" >> /var/log/toetoetoe-agg.log 2>&1
+
+# Seed scraper dagelijks om 06:00 (top 500 bestsellers)
+0 6 * * * curl -s -X POST http://localhost:8080/api/v1/internal/run-scraper -H "X-Internal-Key: <API_KEY>" >> /var/log/toetoetoe-scraper.log 2>&1
