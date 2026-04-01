@@ -124,12 +124,49 @@
 
   // ── Main ───────────────────────────────────────────────────────────────────
 
+  const API_BASE = "https://api.zannns-ai.xyz/api/v1";
+
+  async function getObserverId() {
+    return new Promise((resolve) => {
+      chrome.storage.local.get("observerId", (r) => {
+        if (r.observerId) return resolve(r.observerId);
+        const id = crypto.randomUUID();
+        chrome.storage.local.set({ observerId: id }, () => resolve(id));
+      });
+    });
+  }
+
   function run() {
     const productData = extractFromJsonLd();
     if (!productData) return;
 
-    chrome.runtime.sendMessage({ type: "PRICE_OBSERVED", data: productData });
+    // Store for popup
     chrome.storage.local.set({ currentProduct: productData });
+
+    // Report price directly — no service worker needed
+    getObserverId().then((observerId) => {
+      fetch(`${API_BASE}/prices/report`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          bol_id:      productData.bolId,
+          price:       productData.price,
+          title:       productData.title,
+          ean:         productData.ean,
+          image_url:   productData.imageUrl,
+          category:    productData.category,
+          seller:      productData.seller,
+          url:         productData.url,
+          observer_id: observerId,
+        }),
+      })
+      .then(r => r.json())
+      .then(result => {
+        // Notify service worker to update badge
+        chrome.runtime.sendMessage({ type: "UPDATE_BADGE", data: result }).catch(() => {});
+      })
+      .catch(() => {}); // silently ignore network errors
+    });
   }
 
   if (document.readyState === "loading") {

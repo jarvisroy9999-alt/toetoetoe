@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/playwright/python:v1.49.0-jammy
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir httpx
+
+COPY app/ app/
+
+CMD ["python", "-m", "app.scraper.bol_scraper"]

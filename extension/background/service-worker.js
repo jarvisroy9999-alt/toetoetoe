@@ -8,13 +8,10 @@ import { getObserverId } from "../lib/storage.js";
 
 // ── Price reporting ─────────────────────────────────────────────────────────
 
-chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-  if (message.type === "PRICE_OBSERVED") {
-    handlePriceObserved(message.data).then(sendResponse).catch((err) => {
-      console.warn("[ToeToeToe] price report failed:", err.message);
-      sendResponse({ error: err.message });
-    });
-    return true; // keep channel open for async response
+// Badge update from content script (fire-and-forget, no response needed)
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.type === "UPDATE_BADGE") {
+    updateBadge(message.data?.price_rank, message.data?.is_new_low);
   }
 });
 
